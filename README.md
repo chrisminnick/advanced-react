@@ -1,155 +1,144 @@
-# 3-Day Advanced React Programming Course Outline
+# Advanced React
 
-## Day 1: Advanced State Management and API Integration
+_Version 1.0.0, September 2023_
 
-### Morning Session
-
-1. **Introduction and Objectives**
-
-   - 15 minutes
-   - Overview of the course
-   - Learning objectives and expectations
-
-2. **Strategies for Managing State in React**
-
-   - 30 minutes
-   - `useState`, `useReducer`, `useContext`
-   - Redux and MobX as alternatives
-   - Demo
-
-3. **State Management Lab**
-
-   - 30 minutes
-   - Hands-on exercises with different state management approaches
-
-4. **Integrating with an API Server**
-
-   - 30 minutes
-   - Fetch, Axios
-   - Working with REST and GraphQL APIs
-   - Demo
-
-5. **API Integration Lab**
-   - 30 minutes
-   - Hands-on exercise on fetching data from an API
-
-### Afternoon Session
-
-1. **Asynchronous JavaScript in React**
-
-   - 30 minutes
-   - Promises, async/await
-   - Demo
-
-2. **Asynchronous Operations Lab**
-
-   - 30 minutes
-   - Implement async operations in a sample project
-
-3. **React Query**
-
-   - 30 minutes
-   - How React Query improves data fetching
-   - Demo
-
-4. **React Query Lab**
-   - 30 minutes
-   - Implementing React Query in a project
+**by Chris Minnick**
 
 ---
 
-## Day 2: Server-side Rendering, Routing, and Code Splitting
+## Introduction
 
-### Morning Session
-
-1. **Server-side Rendering (SSR) in React**
-
-   - 30 minutes
-   - Introduction to SSR
-   - Next.js as a solution
-   - Demo
-
-2. **Server-side Rendering Lab**
-
-   - 30 minutes
-   - Implementing SSR in a project
-
-3. **Advanced Routing**
-
-   - 30 minutes
-   - React Router
-   - Nested routing, conditional routes
-   - Demo
-
-4. **Advanced Routing Lab**
-   - 30 minutes
-   - Exercises on implementing advanced routing features
-
-### Afternoon Session
-
-1. **Code Splitting in React**
-
-   - 30 minutes
-   - Dynamic imports
-   - `React.lazy`
-   - Demo
-
-2. **Code Splitting Lab**
-
-   - 30 minutes
-   - Implementing code splitting
-
-3. **React Outside of the Browser**
-
-   - 30 minutes
-   - React Native, React VR
-   - Other applications of React
-
-4. **React Beyond Browser Lab**
-   - 30 minutes
-   - Explore an example using React Native
+In this class, students learn the most advanced and up-to-date techniques and tools in React development. Students will be challenged throughout the course with hands-on exercises, during which they'll get hands-on experience with the topics covered in lectures and demos.
 
 ---
 
-## Day 3: Memoization, Custom Hooks, and Wrap-up
+## Target Audience
 
-### Morning Session
+This course is designed for developers who are already familiar with React and want to learn how to make the best use of it and move past the basics.
 
-1. **Memoization in React**
+---
 
-   - 30 minutes
-   - `React.memo`, `useMemo`, `useCallback`
-   - Demo
+## About the Author
 
-2. **Memoization Lab**
+Chris Minnick has been a full stack developer for over 25 years, and a professional author and trainer for 15 years. He has been the lead front-end React developer for several startup companies and has been building web and mobile user interfaces with React since 2015. Chris has produced online video courses for Pluralsight and O'Reilly Media and is the author of JavaScript All-In-One For Dummies and Beginning React JS Foundations.
 
-   - 30 minutes
-   - Implementing memoization techniques
+---
 
-3. **Developing and Using Custom Hooks**
+## Objectives
 
-   - 30 minutes
-   - Creating custom hooks
-   - Use cases and examples
+All students will:
 
-4. **Custom Hooks Lab**
-   - 30 minutes
-   - Creating and using a custom hook in a project
+- Gain a deeper understanding of Redux
+- Learn to write tests for Redux code
+- Learn how to improve Redux UI performance
+- Use server-side rendering
+- Learn about advanced routing techniques
+- Understand micro-frontends
+- Learn about security and accessibility concerns
+- Learn React best practices
 
-### Afternoon Session
+---
 
-1. **Course Recap and Best Practices**
+## Duration
 
-   - 30 minutes
-   - Summary of topics covered
-   - Best practices in advanced React development
+3-day
 
-2. **Final Project Lab**
+---
 
-   - 1 hour
-   - Implementing a small project that utilizes all topics covered
+## Outline
 
-3. **Q&A and Next Steps**
-   - 30 minutes
-   - Answering any remaining questions
-   - Resources for further learning
+1. **Introduction**
+2. **React Component Lifecycle**
+3. **Hooks vs. Class Components**
+4. **React Component Lifecycle**
+   - Mounting Phase
+   - Updating Phase
+   - Unmounting Phase
+   - Error Handling Phase
+   - Lifecycle Methods in Hooks
+   - Lifecycle Best Practices
+5. **Hooks vs. Class Components**
+   - useState
+   - useEffect
+   - Custom Hooks
+   - State Management in Class Components
+   - State Management in Hooks
+   - Lifecycle Methods in Class Components
+   - useEffect
+   - Performance Optimization in Class Components
+   - Performance Optimization in Hooks
+   - Hooks vs. Class Components
+6. **React Router**
+   - Router Component
+   - Routes Component
+   - Route Component
+   - Link and NavLink Components
+   - Navigate
+   - Dynamic Routing
+   - Outlet Components
+   - Nested Routes
+   - Implementing Protected Routes
+   - Using the Redirect component
+   - Hooks in React Router
+7. **Redux**
+   - Actions
+   - Reducers
+   - Store
+   - Redux Middleware
+   - Redux Thunk
+   - Async Actions
+   - Redux Saga
+   - Redux Toolkit
+     - createAction
+     - createReducer
+     - createSlice
+     - createSelector
+   - Redux DevTools
+   - react-redux
+   - Hooks API
+8. **Testing Redux**
+   - Types of Tests in Redux
+   - Jest
+   - React Testing Library
+   - Unit Testing Actions
+   - Unit Testing Reducers
+   - Testing Middleware
+   - Mocking Middleware
+   - Spy Functions
+   - Integration Testing
+   - Store Integration
+   - Component Integration
+   - Snapshot Testing
+   - Best Practices
+9. **Server-Side Rendering**
+   - Client-Side Rendering vs Server-Side Rendering
+   - Tools for SSR in React
+   - Implementing SSR with Next.js
+   - Advantages of SSR
+   - Drawbacks of SSR
+10. **Code Splitting**
+    - Dynamic Imports
+    - React.lazy() and Suspense
+    - Route-based Code Splitting
+    - Preloading Code
+    - Webpack Chunking
+11. **Micro-frontends**
+    - What are Micro-frontends?
+    - Strategies for Micro-frontends
+    - Micro-frontends with React
+    - Routing in Micro-frontends
+    - Testing Micro-frontends
+    - Deployment and CI/CD
+12. **Performance Optimization**
+    - Measuring Performance
+    - Optimizing Rendering
+    - Lazy Loading
+    - Memoization
+    - Data Fetching Strategies
+      - SWR
+      - React Query
+    - Web Workers
+    - Throttling and Debouncing
+    - Optimizing event handlers
+    - API calls
+    - Server-Side Rendering (SSR)
