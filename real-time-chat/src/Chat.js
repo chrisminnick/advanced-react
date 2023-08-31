@@ -4,9 +4,37 @@ import ChatMessage from './ChatMessage';
 import ChatInput from './ChatInput';
 import ChatHeader from './ChatHeader';
 import ChatFooter from './ChatFooter';
+import ConnectionManager from './ConnectionManager';
+import { useAuth } from './provider/authProvider';
 
-function Chat({ auth, messages, setMessages }) {
+function Chat() {
+  const auth = useAuth();
   const [text, setText] = useState('');
+  const [messages, setMessages] = useState([]);
+  const [isConnected, setIsConnected] = useState(socket.connected);
+  useEffect(() => {
+    function onConnect() {
+      setIsConnected(true);
+    }
+
+    function onDisconnect() {
+      setIsConnected(false);
+    }
+
+    function receiveMessage(value) {
+      setMessages((messages) => [...messages, value]);
+    }
+
+    socket.on('connect', onConnect);
+    socket.on('disconnect', onDisconnect);
+    socket.on('message', receiveMessage);
+
+    return () => {
+      socket.off('connect', onConnect);
+      socket.off('disconnect', onDisconnect);
+      socket.off('message', receiveMessage);
+    };
+  }, []);
   const bottomRef = useRef();
 
   useEffect(() => {
@@ -15,7 +43,7 @@ function Chat({ auth, messages, setMessages }) {
 
   function sendMessage(e) {
     e.preventDefault();
-    const { uid, photoURL } = auth.currentUser;
+    const { uid, photoURL } = auth;
 
     socket.timeout(5000).emit('message', {
       text,
@@ -28,6 +56,15 @@ function Chat({ auth, messages, setMessages }) {
   return (
     <div className="Chat">
       <ChatHeader />
+      <div className="signed-in">
+        <h2 className="welcome-message">
+          Hello {auth.displayName} You are {isConnected ? '' : 'not'} connected
+          <span role="img" aria-label="hello">
+            👋
+          </span>
+          <ConnectionManager />
+        </h2>
+      </div>
       <div className="Chat-messages">
         {messages &&
           messages.map((msg) => (
