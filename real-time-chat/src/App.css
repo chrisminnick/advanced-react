@@ -7,7 +7,13 @@
   padding: 2rem;
   width: 100%;
 }
-/* Path: real-time-chat/src/App.css */
+
+.welcome-message {
+  align-self: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  margin-top: 5rem;
+}
 .message-list {
   list-style-type: none;
   padding: 0;

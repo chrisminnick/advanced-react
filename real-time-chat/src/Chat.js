@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-
+import { socket } from './socket';
 import ChatMessage from './ChatMessage';
 import ChatInput from './ChatInput';
 import ChatHeader from './ChatHeader';
@@ -16,10 +16,12 @@ function Chat({ auth, messages, setMessages }) {
   function sendMessage(e) {
     e.preventDefault();
     const { uid, photoURL } = auth.currentUser;
-    setMessages([
-      ...messages,
-      { id: messages.length, text: text, uid, photoURL },
-    ]);
+
+    socket.timeout(5000).emit('message', {
+      text,
+      uid,
+      photoURL,
+    });
     setText('');
   }
 
