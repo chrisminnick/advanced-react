@@ -1,0 +1,40 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 2rem;
+  width: 100%;
+}
+/* Path: real-time-chat/src/App.css */
+.message-list {
+  list-style-type: none;
+  padding: 0;
+}
+.message {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.received {
+  align-self: flex-start;
+  background-color: #eee;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  width: 50%;
+}
+.sent {
+  align-self: flex-end;
+  background-color: #0084ff;
+  border-radius: 0.5rem;
+  color: #fff;
+  padding: 0.5rem;
+  width: 50%;
+}
+
+.chat-body {
+  flex-grow: 1;
+  overflow-y: scroll;
+}
