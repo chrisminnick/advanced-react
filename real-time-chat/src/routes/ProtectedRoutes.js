@@ -4,7 +4,7 @@ export const ProtectedRoute = () => {
   const { currentUser } = useAuth();
 
   // Check if the user is authenticated
-  if (!currentUser.token) {
+  if (!currentUser) {
     // If not authenticated, redirect to the login page
     return <Navigate to="/login" />;
   }
