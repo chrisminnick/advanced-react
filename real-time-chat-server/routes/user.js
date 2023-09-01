@@ -28,6 +28,7 @@ router.post('/signup', async (req, res) => {
       const newUser = new User({
         email: req.body.email,
         password: hashedPassword,
+        displayName: req.body.displayName,
       });
       await newUser.save();
       res.status(201).json({
@@ -61,6 +62,7 @@ router.post('/login', async (req, res) => {
       res.status(200).json({
         accessToken: accessToken,
         userId: user._id,
+        displayName: user.displayName,
       });
     }
   } catch (err) {

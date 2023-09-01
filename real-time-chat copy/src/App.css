@@ -16,8 +16,6 @@
 
 .received {
   align-self: flex-start;
-  justify-content: flex-start;
-  text-align: left;
   background-color: #eee;
   border-radius: 0.5rem;
   padding: 0.5rem;
@@ -25,8 +23,6 @@
 }
 .sent {
   align-self: flex-end;
-  justify-content: flex-end;
-  text-align: right;
   background-color: #0084ff;
   border-radius: 0.5rem;
   color: #fff;
@@ -38,12 +34,7 @@
   flex-grow: 1;
   overflow-y: scroll;
 }
-.chat-messages {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 50%;
-}
+
 .connectionButton {
   align-self: center;
   background-color: #0084ff;

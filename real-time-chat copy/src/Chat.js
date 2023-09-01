@@ -8,7 +8,7 @@ import ConnectionManager from './ConnectionManager';
 import { useAuth } from './provider/authProvider';
 
 function Chat() {
-  const { currentUser } = useAuth();
+  const auth = useAuth();
   const [text, setText] = useState('');
   const [messages, setMessages] = useState([]);
   const [isConnected, setIsConnected] = useState(socket.connected);
@@ -43,7 +43,7 @@ function Chat() {
 
   function sendMessage(e) {
     e.preventDefault();
-    const { uid, photoURL } = currentUser;
+    const { uid, photoURL } = auth;
 
     socket.timeout(5000).emit('message', {
       text,
@@ -58,18 +58,17 @@ function Chat() {
       <ChatHeader />
       <div className="signed-in">
         <h2 className="welcome-message">
-          Hello {currentUser.displayName} You are {isConnected ? '' : 'not'}{' '}
-          connected
+          Hello {auth.displayName} You are {isConnected ? '' : 'not'} connected
           <span role="img" aria-label="hello">
             👋
           </span>
           <ConnectionManager isConnected={isConnected} />
         </h2>
       </div>
-      <div className="chat-messages">
+      <div className="Chat-messages">
         {messages &&
           messages.map((msg) => (
-            <ChatMessage key={msg.id} message={msg} currentUser={currentUser} />
+            <ChatMessage key={msg.id} message={msg} auth={auth} />
           ))}
         <div ref={bottomRef} />
       </div>

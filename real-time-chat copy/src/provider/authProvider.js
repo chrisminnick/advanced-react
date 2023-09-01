@@ -19,7 +19,6 @@ const AuthProvider = ({ children }) => {
   // Function to set the authentication token
   const setAuth = useCallback((newAuth) => {
     setCurrentUser(newAuth);
-    console.log('currentUser', currentUser);
   }, []);
 
   useEffect(() => {
@@ -27,7 +26,6 @@ const AuthProvider = ({ children }) => {
       axios.defaults.headers.common['Authorization'] =
         'Bearer ' + currentUser.token;
       localStorage.setItem('currentUser', JSON.stringify(currentUser));
-      console.log('currentUser', currentUser);
     } else {
       delete axios.defaults.headers.common['Authorization'];
       localStorage.removeItem('currentUser');

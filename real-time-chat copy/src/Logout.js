@@ -10,7 +10,9 @@ const Logout = () => {
     navigate('/', { replace: true });
   };
 
-  handleLogout();
+  setTimeout(() => {
+    handleLogout();
+  }, 3 * 1000);
 
   return <>Logout Page</>;
 };

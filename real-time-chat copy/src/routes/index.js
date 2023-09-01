@@ -4,7 +4,6 @@ import { ProtectedRoute } from './ProtectedRoutes';
 import Login from '../Login';
 import Logout from '../Logout';
 import Chat from '../Chat';
-import Signup from '../Signup';
 
 const Routes = () => {
   const { auth } = useAuth();
@@ -52,10 +51,6 @@ const Routes = () => {
     {
       path: '/login',
       element: <Login />,
-    },
-    {
-      path: '/signup',
-      element: <Signup />,
     },
   ];
 
