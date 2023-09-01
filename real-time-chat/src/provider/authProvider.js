@@ -1,5 +1,12 @@
 import axios from 'axios';
-import { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+  useCallback,
+} from 'react';
 
 const AuthContext = createContext();
 
@@ -10,9 +17,9 @@ const AuthProvider = ({ children }) => {
   );
 
   // Function to set the authentication token
-  const setAuth = (newAuth) => {
+  const setAuth = useCallback((newAuth) => {
     setCurrentUser(newAuth);
-  };
+  }, []);
 
   useEffect(() => {
     if (currentUser) {

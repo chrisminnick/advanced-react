@@ -44,3 +44,15 @@
   flex-grow: 1;
   overflow-y: scroll;
 }
+
+.connectionButton {
+  align-self: center;
+  background-color: #0084ff;
+  border: none;
+  border-radius: 0.5rem;
+  color: #fff;
+  font-size: 1rem;
+  margin-left: 1rem;
+  padding: 0.5rem;
+  width: 100px;
+}

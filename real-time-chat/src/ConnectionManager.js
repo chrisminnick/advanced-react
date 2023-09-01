@@ -1,7 +1,7 @@
 import React from 'react';
 import { socket } from './socket';
 
-export function ConnectionManager() {
+export function ConnectionManager({ isConnected }) {
   function connect() {
     socket.connect();
   }
@@ -12,8 +12,15 @@ export function ConnectionManager() {
 
   return (
     <>
-      <button onClick={connect}>Connect</button>
-      <button onClick={disconnect}>Disconnect</button>
+      {isConnected ? (
+        <button className="connectionButton" onClick={disconnect}>
+          Disconnect
+        </button>
+      ) : (
+        <button className="connectionButton" onClick={connect}>
+          Connect
+        </button>
+      )}
     </>
   );
 }

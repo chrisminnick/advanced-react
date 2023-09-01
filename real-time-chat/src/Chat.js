@@ -62,7 +62,7 @@ function Chat() {
           <span role="img" aria-label="hello">
             👋
           </span>
-          <ConnectionManager />
+          <ConnectionManager isConnected={isConnected} />
         </h2>
       </div>
       <div className="Chat-messages">
