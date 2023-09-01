@@ -1,10 +1,16 @@
+import { useEffect } from 'react';
 import { useAuth } from './provider/authProvider.js';
 
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const { setAuth } = useAuth();
+  const { currentUser, setAuth } = useAuth();
   const navigate = useNavigate();
+  useEffect(() => {
+    if (currentUser) {
+      navigate('/chat', { replace: true });
+    }
+  }, [navigate, currentUser]);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -14,7 +20,6 @@ const Login = () => {
       photoURL: 'https://picsum.photos/200',
       displayName: 'Test User',
     });
-    navigate('/chat', { replace: true });
   };
 
   return (

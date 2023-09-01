@@ -46,7 +46,7 @@ const Routes = () => {
   const routesForNotAuthenticatedOnly = [
     {
       path: '/',
-      element: <Link to="/login">Login</Link>,
+      element: <Login />,
     },
     {
       path: '/login',
