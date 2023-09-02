@@ -14,7 +14,7 @@ A real-time chat application built with React, Node.js, Express, and Socket.io.
 
 ## Project Overview
 
-This project is a real-time chat application built with React, Node.js, Express, and Socket.io. It allows users to create chat rooms and send messages to other users in real-time. Users can also see who is currently online in the chat room.
+This project is a real-time chat application built with React, Node.js, Express, and Socket.io. It allows users to create user accounts, login to user accounts, and send messages in real-time.
 
 ## Tech Stack
 
@@ -45,41 +45,70 @@ This project is a real-time chat application built with React, Node.js, Express,
 1. Clone the repo
 
 ```sh
-git clone
+git clone https://github.com/chrisminnick/advanced-react.git
 ```
 
-2. Install dependencies
+2. Make the real-time-chat/server directory your current directory
+
+```sh
+cd real-time-chat/server
+```
+
+3. Install dependencies
 
 ```sh
 npm install
 ```
 
-3. Create a .env file in the root directory and add the following environment variables
+4. Create a .env file in the root directory and add the following environment variables
 
 ```sh
-MONGO_URI=<your_mongodb_uri>
+NODE_ENV=development
 
-JWT_SECRET=<your_jwt_secret>
+SERVER_PORT=8081
 
-JWT_EXPIRES_IN=<your_jwt_expiration_time>
+MONGO_URI=mongodb://localhost:27017
 
-JWT_COOKIE_EXPIRES_IN=<your_jwt_cookie_expiration_time>
+ACCESS_TOKEN_SECRET=secret
+
+TOKEN_EXPIRATION=7200
 ```
 
-4. Run the app
+5. Run the app
 
 ```sh
-npm run dev
+npm start
+```
+
+6. Make the real-time-chat/client directory your current directory
+
+```sh
+cd real-time-chat/client
+```
+
+7. Install dependencies
+
+```sh
+npm install
+```
+
+8. Run the app
+
+```sh
+npm start
 ```
 
 ## Features
 
-- Create chat rooms
+- Create user accounts
+- Login to user accounts
 - Send messages in real-time
-- See who is currently online in the chat room
 
 ## Future Features
 
+- Create chat rooms
+- See who is currently online in the chat room
+- Save chat history
 - Add a feature to allow users to send images
 - Add a feature to allow users to send emojis
 - Add a feature to allow users to send files

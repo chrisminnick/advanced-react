@@ -11,7 +11,7 @@ dotenv.config();
 const port = process.env.SERVER_PORT || 8081;
 // Connecting to the database
 mongoose
-  .connect('mongodb://localhost:27017/real-time-chat', {
+  .connect(`${process.env.MONGO_URI}/real-time-chat`, {
     useNewUrlParser: true,
   })
   .then(() => {
