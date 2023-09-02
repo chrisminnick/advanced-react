@@ -1,87 +1,79 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import { useAuth } from './provider/authProvider';
+import { useAuth } from '../provider/authProvider.js';
 
-function Signup() {
-  const { setAuth, currentUser } = useAuth();
-  const [signupMessage, setSignupMessage] = useState(null);
+import { useNavigate, Link } from 'react-router-dom';
+
+const Login = () => {
+  const [loginErr, setLoginErr] = useState('');
+  const { currentUser, setAuth } = useAuth();
   const navigate = useNavigate();
   useEffect(() => {
     if (currentUser) {
       navigate('/chat', { replace: true });
     }
   }, [navigate, currentUser]);
-  const handleSignup = async (e) => {
-    e.preventDefault();
 
+  const handleLogin = async (e) => {
+    e.preventDefault();
     try {
-      const response = await fetch('http://localhost:8081/api/user/signup', {
+      const response = await fetch('http://localhost:8081/api/user/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          displayName: e.target.displayName.value,
           email: e.target.email.value,
           password: e.target.password.value,
         }),
       });
       const data = await response.json();
-
       console.log(data);
-
       if (data.message) {
-        setSignupMessage(data.message);
-        if (signupMessage === 'User created!') {
-        }
+        setLoginErr(data.message);
+      } else {
+        setAuth({
+          token: data.accessToken,
+          uid: data.userId,
+          displayName: data.displayName,
+        });
       }
     } catch (error) {
       console.error(error);
     }
   };
+
   return (
     <div className="container">
       <div className="row">
         <div className="col-md-12">
           <div className="card mt-5">
             <div className="card-header">
-              <h4>Sign Up</h4>
+              <h4>Login</h4>
             </div>
             <div className="card-body">
-              {signupMessage && (
-                <div className="alert alert-success" role="alert">
-                  {signupMessage} Please <Link to="/login">login</Link>
+              {loginErr && (
+                <div className="alert alert-danger" role="alert">
+                  {loginErr}
                 </div>
               )}
-              <form onSubmit={handleSignup}>
+              <form onSubmit={handleLogin}>
                 <div className="form-group mb-3">
                   <label>Email</label>
-                  <input
-                    required
-                    type="email"
-                    id="email"
-                    className="form-control"
-                  />
-                </div>
-                <div className="form-group mb-3">
-                  <label>Display Name</label>
-                  <input
-                    type="text"
-                    id="displayName"
-                    className="form-control"
-                  />
+                  <input type="email" id="email" className="form-control" />
                 </div>
                 <div className="form-group mb-3">
                   <label>Password</label>
                   <input
-                    required
                     type="password"
                     id="password"
                     className="form-control"
                   />
                 </div>
                 <div className="form-group mb-3">
-                  <button className="btn btn-primary">Sign Up</button>
+                  <button className="btn btn-primary">Login</button>
+                  <Link to="/signup" className="btn m-3">
+                    Sign Up
+                  </Link>
                 </div>
               </form>
             </div>
@@ -90,6 +82,6 @@ function Signup() {
       </div>
     </div>
   );
-}
+};
 
-export default Signup;
+export default Login;

@@ -1,10 +1,10 @@
-import { RouterProvider, createBrowserRouter, Link } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { useAuth } from '../provider/authProvider';
 import { ProtectedRoute } from './ProtectedRoutes';
-import Login from '../Login';
-import Logout from '../Logout';
-import Chat from '../Chat';
-import Signup from '../Signup';
+import Login from '../components/Login';
+import Logout from '../components/Logout';
+import Chat from '../components/Chat';
+import Signup from '../components/Signup';
 
 const Routes = () => {
   const { auth } = useAuth();
@@ -12,8 +12,8 @@ const Routes = () => {
   // Define public routes accessible to all users
   const routesForPublic = [
     {
-      path: '/service',
-      element: <div>Service Page</div>,
+      path: '/contact-us',
+      element: <div>Contact Us</div>,
     },
     {
       path: '/about-us',

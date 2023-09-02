@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
-import { socket } from './socket';
+import { socket } from '../socket';
 import ChatMessage from './ChatMessage';
 import ChatInput from './ChatInput';
 import ChatHeader from './ChatHeader';
 import ChatFooter from './ChatFooter';
 import ConnectionManager from './ConnectionManager';
-import { useAuth } from './provider/authProvider';
+import { useAuth } from '../provider/authProvider';
 
 function Chat() {
   const { currentUser } = useAuth();

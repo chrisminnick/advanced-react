@@ -17,10 +17,13 @@ const AuthProvider = ({ children }) => {
   );
 
   // Function to set the authentication token
-  const setAuth = useCallback((newAuth) => {
-    setCurrentUser(newAuth);
-    console.log('currentUser', currentUser);
-  }, []);
+  const setAuth = useCallback(
+    (newAuth) => {
+      setCurrentUser(newAuth);
+      console.log('currentUser', currentUser);
+    },
+    [currentUser]
+  );
 
   useEffect(() => {
     if (currentUser) {
