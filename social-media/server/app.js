@@ -3,7 +3,6 @@ import mongoose from 'mongoose';
 
 import postsRoutes from './routes/posts.js';
 import userRoutes from './routes/user.js';
-
 const app = express();
 
 // Connecting to the database
@@ -37,6 +36,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Setting up the routes
+
 app.use('/api/posts', postsRoutes);
 app.use('/api/user', userRoutes);
 
