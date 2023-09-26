@@ -15,6 +15,11 @@ export const login = createAsyncThunk('auth/login', async (credentials) => {
   return response;
 });
 
+export const logout = createAsyncThunk('auth/logout', async (token) => {
+  const response = await api.logout(token);
+  return response;
+});
+
 export const authSlice = createSlice({
   name: 'auth',
   initialState,

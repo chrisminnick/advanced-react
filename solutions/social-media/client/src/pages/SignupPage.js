@@ -9,7 +9,7 @@ function Signup() {
 
   useEffect(() => {
     if (user) {
-      navigate('/chat', { replace: true });
+      navigate('/posts', { replace: true });
     }
   }, [navigate, user]);
   const handleSignup = async (e) => {

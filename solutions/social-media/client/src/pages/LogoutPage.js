@@ -1,12 +1,16 @@
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../provider/authProvider';
+import { logout, setToken, setUser } from '../features/auth/authSlice';
 
 const Logout = () => {
-  const { setAuth } = useAuth();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    setAuth();
+  const handleLogout = async () => {
+    await dispatch(logout());
+    dispatch(setToken(null));
+    dispatch(setUser(null));
+    localStorage.removeItem('token');
     navigate('/', { replace: true });
   };
 

@@ -50,6 +50,17 @@ export const api = {
     const data = await response.json();
     return data;
   },
+  // make a post request to the server for user logout
+  logout: async (token) => {
+    const response = await fetch(`${API_URL}/user/logout`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const data = await response.json();
+    return data;
+  },
   // make a put request to the server
   put: async (url, token, body) => {
     const response = await fetch(url, {
