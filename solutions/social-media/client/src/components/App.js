@@ -1,14 +1,19 @@
-import AuthProvider from '../provider/authProvider';
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Routes from '../routes';
+import { store } from '../store/store';
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../App.css';
+
 function App() {
   return (
-    <AuthProvider>
-      <div className="App container">
-        <Routes />
-      </div>
-    </AuthProvider>
+    <Provider store={store}>
+      <Router>
+        <div className="App container">
+          <Routes />
+        </div>
+      </Router>
+    </Provider>
   );
 }
 
