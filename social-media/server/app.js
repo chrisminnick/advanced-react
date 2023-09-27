@@ -1,10 +1,10 @@
 import express from 'express';
 import mongoose from 'mongoose';
-
+import cors from 'cors';
 import postsRoutes from './routes/posts.js';
 import userRoutes from './routes/user.js';
 const app = express();
-
+app.use(cors());
 // Connecting to the database
 mongoose
   .connect('mongodb://localhost:27017/social-network', {
