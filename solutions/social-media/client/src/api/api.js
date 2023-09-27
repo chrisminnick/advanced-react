@@ -86,4 +86,3 @@ export const api = {
     return data;
   },
 };
-// Compare this snippet from solutions/social-media/client/src/features/posts/Posts.js:
