@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useParams } from 'react-router-dom';
 import { socket } from '../socket';
 import ChatMessage from './ChatMessage';
 import ChatInput from './ChatInput';
@@ -8,6 +9,7 @@ import ConnectionManager from './ConnectionManager';
 import { useAuth } from '../provider/authProvider';
 
 function Chat() {
+  const { roomId } = useParams() || '1';
   const { currentUser } = useAuth();
   const [text, setText] = useState('');
   const [messages, setMessages] = useState([]);
@@ -58,8 +60,8 @@ function Chat() {
       <ChatHeader />
       <div className="signed-in">
         <h2 className="welcome-message">
-          Hello {currentUser.displayName} You are {isConnected ? '' : 'not'}{' '}
-          connected
+          Hello {currentUser.displayName}. Welcome to {roomId}. You are{' '}
+          {isConnected ? '' : 'not'} connected
           <span role="img" aria-label="hello">
             👋
           </span>
@@ -68,12 +70,17 @@ function Chat() {
       </div>
       <div className="chat-messages">
         {messages &&
-          messages.map((msg) => (
-            <ChatMessage key={msg.id} message={msg} currentUser={currentUser} />
+          messages.map((msg, index) => (
+            <ChatMessage key={index} message={msg} currentUser={currentUser} />
           ))}
         <div ref={bottomRef} />
       </div>
-      <ChatInput text={text} setText={setText} sendMessage={sendMessage} />
+      <ChatInput
+        text={text}
+        setText={setText}
+        sendMessage={sendMessage}
+        currentUser={currentUser}
+      />
       <ChatFooter />
     </div>
   );

@@ -28,9 +28,6 @@ This project is a real-time chat application built with React, Node.js, Express,
 - [Bcrypt](https://www.npmjs.com/package/bcrypt)
 - [Axios](https://www.npmjs.com/package/axios)
 - [React Router](https://reactrouter.com/)
-- [Redux](https://redux.js.org/)
-- [Redux Toolkit](https://redux-toolkit.js.org/)
-- [Redux Saga](https://redux-saga.js.org/)
 
 ## Getting Started
 
@@ -38,7 +35,6 @@ This project is a real-time chat application built with React, Node.js, Express,
 
 - [Node.js](https://nodejs.org/en/)
 - [MongoDB](https://www.mongodb.com/)
-- [Yarn](https://yarnpkg.com/)
 
 ### Installation
 
@@ -67,7 +63,7 @@ NODE_ENV=development
 
 SERVER_PORT=8081
 
-MONGO_URI=mongodb://localhost:27017
+MONGO_URI=mongodb://127.0.0.1:27017
 
 ACCESS_TOKEN_SECRET=secret
 

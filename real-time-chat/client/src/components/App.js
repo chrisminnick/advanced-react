@@ -1,4 +1,5 @@
 import AuthProvider from '../provider/authProvider';
+import { ProtectedRoute } from '../routes/ProtectedRoutes';
 import Routes from '../routes';
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../App.css';
