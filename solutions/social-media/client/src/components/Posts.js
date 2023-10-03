@@ -32,7 +32,7 @@ function Posts() {
     <>
       <h1>Latest Posts</h1>
       {posts.map((post, index) => (
-        <p>
+        <p key={index}>
           <Link to={'/posts/' + post._id}>{post.text}</Link>
         </p>
       ))}
