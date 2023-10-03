@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../provider/authProvider.js';
+import AddPost from './AddPost.js';
 
 function Posts() {
   const [posts, setPosts] = useState([]);
-  const { currentUser, setAuth } = useAuth();
+  const { currentUser } = useAuth();
   const { token } = currentUser;
   useEffect(
     function getData() {
@@ -36,6 +37,7 @@ function Posts() {
           <Link to={'/posts/' + post._id}>{post.text}</Link>
         </p>
       ))}
+      <AddPost setPosts={setPosts} posts={posts} />
       <Link to="/logout">Log out</Link>
     </>
   );
