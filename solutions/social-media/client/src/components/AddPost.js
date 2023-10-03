@@ -9,7 +9,7 @@ function AddPost(props) {
 
   async function submitPost() {
     try {
-      await fetch('http://localhost:8081/api/posts', {
+      const response = await fetch('http://localhost:8081/api/posts', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -17,8 +17,10 @@ function AddPost(props) {
         },
         body: JSON.stringify({ text: postText }),
       });
+      const data = await response.json();
+
       setPostText('');
-      props.setPosts([...props.posts, postText]);
+      props.setPosts([...props.posts, { _id: data.post.id, text: postText }]);
     } catch (e) {
       console.log(e);
     }
