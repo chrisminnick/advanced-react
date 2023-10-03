@@ -31,12 +31,10 @@ const Routes = () => {
         {
           path: '/posts',
           element: <Posts />,
-          children: [
-            {
-              path: '/posts/:postId',
-              element: <SinglePost />,
-            },
-          ],
+        },
+        {
+          path: '/posts/:postId',
+          element: <SinglePost />,
         },
         {
           path: '/profile',
