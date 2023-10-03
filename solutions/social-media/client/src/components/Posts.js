@@ -32,7 +32,9 @@ function Posts() {
     <>
       <h1>Latest Posts</h1>
       {posts.map((post, index) => (
-        <p>{post.text}</p>
+        <p>
+          <Link to={'/posts/' + post._id}>{post.text}</Link>
+        </p>
       ))}
       <Link to="/logout">Log out</Link>
     </>

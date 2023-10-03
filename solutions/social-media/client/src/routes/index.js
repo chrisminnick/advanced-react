@@ -5,6 +5,7 @@ import Login from '../components/Login';
 import Logout from '../components/Logout';
 import Signup from '../components/Signup';
 import Posts from '../components/Posts';
+import SinglePost from '../components/SinglePost';
 
 const Routes = () => {
   const { auth } = useAuth();
@@ -30,6 +31,12 @@ const Routes = () => {
         {
           path: '/posts',
           element: <Posts />,
+          children: [
+            {
+              path: '/posts/:postId',
+              element: <SinglePost />,
+            },
+          ],
         },
         {
           path: '/profile',
