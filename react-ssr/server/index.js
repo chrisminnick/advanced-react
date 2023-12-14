@@ -46,6 +46,6 @@ app.get('/*', (req, res, next) => {
 
 app.use(express.static(path.resolve(__dirname, '../build')));
 
-app.listen(8080, () =>
+app.listen(9000, () =>
   console.log('Express server is running on localhost:8080')
 );

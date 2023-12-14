@@ -54,7 +54,7 @@ const httpServer = createServer(app);
 const io = new Server(httpServer, {
   // Socket.io options here
   cors: {
-    origin: 'http://localhost:3000',
+    origin: '*',
   },
 });
 
