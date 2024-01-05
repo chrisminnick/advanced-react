@@ -28,7 +28,7 @@ const Routes = () => {
       element: <ProtectedRoute />, // Wrap the component in ProtectedRoute
       children: [
         {
-          path: '/chat/:roomId',
+          path: '/chat',
           element: <Chat />,
         },
         {
