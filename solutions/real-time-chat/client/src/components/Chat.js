@@ -73,7 +73,12 @@ function Chat() {
           ))}
         <div ref={bottomRef} />
       </div>
-      <ChatInput text={text} setText={setText} sendMessage={sendMessage} />
+      <ChatInput
+        text={text}
+        setText={setText}
+        sendMessage={sendMessage}
+        currentUser={currentUser}
+      />
       <ChatFooter />
     </div>
   );

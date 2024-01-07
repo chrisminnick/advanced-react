@@ -102,6 +102,12 @@ npm start
 
 ## Future Features
 
+- Implement Error Boundaries
+- Implement User settings / change password
+- Implement lost password functionality
+- Improve the UI
+- Fix error message on signup
+- Fix crashing bug on dupe signup.
 - Create chat rooms
 - See who is currently online in the chat room
 - Save chat history
@@ -117,3 +123,5 @@ npm start
 - Add a feature to allow users to send locations
 - Add a feature to allow users to send contacts
 - Add a feature to allow users to send money
+- Think up more features
+- Submit a pull request to the repo

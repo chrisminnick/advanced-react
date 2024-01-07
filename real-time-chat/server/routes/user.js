@@ -71,5 +71,13 @@ router.post('/login', async (req, res) => {
     });
   }
 });
+router.post('/update', async (req, res) => {
+  try {
+  } catch (err) {
+    res.status(500).json({
+      message: 'Internal server error',
+    });
+  }
+});
 
 export default router;
