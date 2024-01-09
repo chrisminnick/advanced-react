@@ -1,4 +1,4 @@
-#Instructions
+# Instructions
 
 1. Create a .env file at the root of the /server directory
    It should have the following variables:
