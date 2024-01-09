@@ -16,6 +16,7 @@ const Routes = () => {
       <Route path="/signup" element={<SignupPage />} />
       <Route path="/posts" element={<ProtectedRoute />}>
         <Route path="/posts" element={<PostsPage />} />
+        <Route path="/posts/:id" element={<PostsPage />} />
       </Route>
     </RouterRoutes>
   );
