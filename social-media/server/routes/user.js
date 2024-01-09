@@ -21,8 +21,7 @@ router.post('/signup', (req, res) => {
       res.status(409).json({
         message: 'User already exists!',
       });
-    }
-    if (!user) {
+    } else {
       const salt = await bcrypt.genSalt(10);
       const hashedPassword = await bcrypt.hash(req.body.password, salt);
       const newUser = new User({
@@ -51,13 +50,14 @@ router.post('/login', async (req, res) => {
         res.status(401).json({
           message: 'Incorrect password',
         });
-      }
-      const accessToken = generateAccessToken({ user: req.body.email });
+      } else {
+        const accessToken = generateAccessToken({ user: req.body.email });
 
-      res.status(200).json({
-        accessToken: accessToken,
-        userId: user._id,
-      });
+        res.status(200).json({
+          accessToken: accessToken,
+          userId: user._id,
+        });
+      }
     }
   } catch (err) {
     res.status(500).json({
