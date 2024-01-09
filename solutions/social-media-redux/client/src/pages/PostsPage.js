@@ -1,19 +1,13 @@
-import { Link } from 'react-router-dom';
-import { PureComponent } from 'react';
+import { Link, useParams } from 'react-router-dom';
 
-class Posts extends PureComponent {
-  constructor(props) {
-    super();
-  }
-
-  render() {
-    return (
-      <div>
-        <h1>Posts</h1>
-        <Link to="/logout">Log out</Link>
-      </div>
-    );
-  }
+function Posts() {
+  const [postId] = useParams();
+  return (
+    <div>
+      <h1>Post {postId}</h1>
+      <Link to="/logout">Log out</Link>
+    </div>
+  );
 }
 
 export default Posts;
