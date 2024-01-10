@@ -1,44 +1,19 @@
-import { useState, useEffect } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import useNavigateIfTokenExists from '../hooks/useNavigateIfTokenExists';
+import useSignup from '../hooks/useSignup';
+import { Link } from 'react-router-dom';
+import InputField from '../components/InputField';
 
-function Signup() {
-  const { user } = useSelector((state) => state.auth);
-  const [signupMessage, setSignupMessage] = useState(null);
-  const navigate = useNavigate();
+function SignupPage() {
+  const { handleSignup, isLoading, signupMessage, error } = useSignup();
+  useNavigateIfTokenExists();
 
-  useEffect(() => {
-    if (user) {
-      navigate('/posts', { replace: true });
-    }
-  }, [navigate, user]);
-  const handleSignup = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-
-    try {
-      const response = await fetch('http://localhost:8081/api/user/signup', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          displayName: e.target.displayName.value,
-          email: e.target.email.value,
-          password: e.target.password.value,
-        }),
-      });
-      const data = await response.json();
-
-      console.log(data);
-
-      if (data.message) {
-        setSignupMessage(data.message);
-        if (signupMessage === 'User created!') {
-        }
-      }
-    } catch (error) {
-      console.error(error);
-    }
+    handleSignup(
+      e.target.displayName.value,
+      e.target.email.value,
+      e.target.password.value
+    );
   };
   return (
     <div className="container">
@@ -54,33 +29,15 @@ function Signup() {
                   {signupMessage} Please <Link to="/login">login</Link>
                 </div>
               )}
-              <form onSubmit={handleSignup}>
-                <div className="form-group mb-3">
-                  <label>Email</label>
-                  <input
-                    required
-                    type="email"
-                    id="email"
-                    className="form-control"
-                  />
+              {error && (
+                <div className="alert alert-success" role="alert">
+                  {error}
                 </div>
-                <div className="form-group mb-3">
-                  <label>Display Name</label>
-                  <input
-                    type="text"
-                    id="displayName"
-                    className="form-control"
-                  />
-                </div>
-                <div className="form-group mb-3">
-                  <label>Password</label>
-                  <input
-                    required
-                    type="password"
-                    id="password"
-                    className="form-control"
-                  />
-                </div>
+              )}
+              <form onSubmit={handleSubmit}>
+                <InputField label="Email" type="email" id="email" />
+                <InputField label="Display Name" type="text" id="displayName" />
+                <InputField label="Password" type="password" id="password" />
                 <div className="form-group mb-3">
                   <button className="btn btn-primary">Sign Up</button>
                 </div>
@@ -93,4 +50,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default SignupPage;

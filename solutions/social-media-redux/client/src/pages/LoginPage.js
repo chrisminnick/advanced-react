@@ -1,27 +1,12 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { login, setToken, setUser } from '../features/auth/authSlice';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import useLogin from '../hooks/useLogin';
+import InputField from '../components/InputField';
 
 function LoginPage() {
-  const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [loginErr, setLoginErr] = useState(null);
-  const navigate = useNavigate();
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const data = await dispatch(login({ email, password }));
-      localStorage.setItem('token', JSON.stringify(data.payload.accessToken));
-      dispatch(setToken(data.payload.accessToken));
-      dispatch(setUser(data.payload.userId));
-      navigate('/posts', { replace: true });
-    } catch (err) {
-      setLoginErr(err.message);
-    }
-  };
+  const { handleSubmit, loginErr, isLoading } = useLogin(email, password);
 
   return (
     <div className="container">
@@ -38,28 +23,20 @@ function LoginPage() {
                 </div>
               )}
               <form onSubmit={handleSubmit}>
-                <div className="form-group mb-3">
-                  <label>Email</label>
-                  <input
-                    type="email"
-                    id="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="form-control"
-                    required
-                  />
-                </div>
-                <div className="form-group mb-3">
-                  <label>Password</label>
-                  <input
-                    type="password"
-                    id="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="form-control"
-                    required
-                  />
-                </div>
+                <InputField
+                  label="Email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  id="email"
+                />
+                <InputField
+                  label="Password"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  id="password"
+                />
                 <div className="form-group mb-3">
                   <button className="btn btn-primary">Login</button>
                   <Link to="/signup" className="btn m-3">
