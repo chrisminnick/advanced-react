@@ -1,6 +1,6 @@
 # Advanced React
 
-**Version**: 1.0.0, September 2023  
+**Version**: 1.3.0, August 2024  
 **By**: Chris Minnick
 
 ## Introduction
@@ -30,7 +30,7 @@ All students will:
 
 ## Duration
 
-3-day
+2-day
 
 ## Outline
 
